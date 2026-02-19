@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="max-w-6xl mx-auto">
+
+    <!-- 🔵 Welcome Card -->
+    <div class="bg-white p-6 rounded-xl shadow-md mb-6">
+        <h2 class="text-2xl font-bold text-indigo-600">
+            Welcome, {{ user.username }} 👋
+        </h2>
+        <p class="text-gray-600 mt-2">
+            Manage your profile and start chatting.
+        </p>
+    </div>
+
+    <!-- 📊 Dashboard Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Profile Card -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">
+                My Profile
+            </h3>
+            <p class="text-gray-500 text-sm mb-4">
+                View and manage your account details.
+            </p>
+
+            <a href="{% url 'profile' %}"
+               class="inline-block bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                View Profile
+            </a>
+        </div>
+
+        <!-- Chat Card -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">
+                Conversations
+            </h3>
+            <p class="text-gray-500 text-sm mb-4">
+                Start or continue chatting with users.
+            </p>
+
+            <a href="#"
+               class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                Open Chat
+            </a>
+        </div>
+
+        <!-- Logout Card -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">
+                Logout
+            </h3>
+            <p class="text-gray-500 text-sm mb-4">
+                Securely logout from your account.
+            </p>
+
+            <a href="{% url 'logout' %}"
+               class="inline-block bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                Logout
+            </a>
+        </div>
+
+    </div>
+
+   
+</div>
+
+{% endblock %}

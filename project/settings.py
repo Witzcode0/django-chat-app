@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-agli&s(oq_n67c^mb2uiz!1w6lg80geobhr)_2so_)j(x6-zau
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = [".onrender.com"]
+ALLOWED_HOSTS = [".onrender.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.master',
+    'apps.dashboard',
     'apps.users',
 ]
 
@@ -102,7 +103,7 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    
+
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
