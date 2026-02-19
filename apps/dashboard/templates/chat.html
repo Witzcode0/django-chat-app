@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Chat{% endblock %}
+
+{% block content %}
+
+<div class="h-[80vh] bg-white rounded-xl shadow overflow-hidden flex">
+
+    <!-- 🔵 Sidebar -->
+    <div class="w-1/3 border-r bg-gray-50 flex flex-col">
+
+        <div class="p-4 border-b">
+            <h2 class="text-lg font-semibold text-gray-700">
+                Conversations
+            </h2>
+        </div>
+
+        <!-- Users List -->
+        <div class="flex-1 overflow-y-auto">
+
+            <!-- Example User -->
+            <div class="p-4 hover:bg-gray-200 cursor-pointer border-b">
+                <div class="font-semibold">Rahul</div>
+                <div class="text-sm text-gray-500">Last message preview...</div>
+            </div>
+
+            <div class="p-4 hover:bg-gray-200 cursor-pointer border-b">
+                <div class="font-semibold">Priya</div>
+                <div class="text-sm text-gray-500">Typing...</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 💬 Chat Area -->
+    <div class="w-2/3 flex flex-col">
+
+        <!-- Chat Header -->
+        <div class="p-4 border-b bg-gray-100">
+            <h2 class="font-semibold text-gray-700">
+                Rahul
+            </h2>
+        </div>
+
+        <!-- Messages -->
+        <div class="flex-1 p-6 overflow-y-auto space-y-4 bg-gray-50">
+
+            <!-- Received Message -->
+            <div class="flex">
+                <div class="bg-white px-4 py-2 rounded-lg shadow text-sm max-w-xs">
+                    Hello 👋
+                </div>
+            </div>
+
+            <!-- Sent Message -->
+            <div class="flex justify-end">
+                <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow text-sm max-w-xs">
+                    Hi! How are you?
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Message Input -->
+        <div class="p-4 border-t bg-white">
+            <form method="POST" class="flex items-center space-x-3">
+                {% csrf_token %}
+
+                <input type="text" name="message"
+                       placeholder="Type your message..."
+                       class="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:ring-2 focus:ring-indigo-400 outline-none">
+
+                <button type="submit"
+                        class="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition">
+                    Send
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

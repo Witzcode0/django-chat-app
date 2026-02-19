@@ -119,3 +119,6 @@ def dashboard_view(request):
 def profile_view(request):
     user = get_logged_in_user(request)
     return render(request, "profile.html", {"user": user})
+
+def chat_view(request):
+    return render(request, "chat.html")
