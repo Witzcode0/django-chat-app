@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-agli&s(oq_n67c^mb2uiz!1w6lg80geobhr)_2so_)j(x6-zau
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = [".onrender.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -81,23 +81,13 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 
-if DEBUG:
-    # Local Development (SQLite)
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'chatDB.db'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'chatDB.db'),
     }
-else:
-    # Production (Render PostgreSQL)
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600,
-            ssl_require=True
-        )
-    }
+}
+
 
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
